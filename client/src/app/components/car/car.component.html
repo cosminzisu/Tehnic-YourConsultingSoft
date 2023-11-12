@@ -1,0 +1,34 @@
+<!-- numele componentei -->
+<h2>Componenta Masini</h2>
+<!-- tabelul componentei -->
+<table>
+    <thead>
+      <tr>
+        <th>Numar curent</th>
+        <th>Denumire Marca</th>
+        <th>Denumire Model</th>
+        <th>Anul Fabricatiei</th>
+        <th>Capacitate Cilindrica</th>
+        <th>Taxa Impozit</th>
+        <th>Actiuni</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let masina of cars; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{masina.marca}}</td>
+        <td>{{masina.model}}</td>
+        <td>{{masina.an}}</td>
+        <td>{{masina.cc}}</td>
+        <td>{{masina.taxa}}</td>
+        <td>
+            <button class="btn-modificare" (click)="addEdit(masina)">Modificare</button> 
+            <button class="btn-stergere" (click)="delete(masina)">Stergere</button>
+       <tr>
+    </tbody>
+  </table>
+<!-- buton de adaugare -->
+<button class='btn btn-primary btn-sm' type='button' (click)='addEdit()'>
+  <fa-icon [icon]='faPlus'></fa-icon> Adaugă
+</button>

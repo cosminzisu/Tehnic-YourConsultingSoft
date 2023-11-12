@@ -1,0 +1,40 @@
+<h2>Componenta Persoane</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Numar curent</th>
+      <th>Nume/Prenume</th>
+      <th>CNP</th>
+      <th>Varsta</th>
+      <th>Lista masinilor aflate in proprietate</th>
+      <th>Actiuni</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let persoana of persons; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ persoana.nume }} / {{ persoana.prenume }}</td>
+      <td>{{ persoana.cnp }}</td>
+      <td>{{ persoana.varsta }}</td>
+      <td>
+        <div *ngFor="let masinaId of persoana.masini">
+          <div *ngIf="getMasinaById(masinaId)">
+            <p>Marca/Model: {{ getMasinaById(masinaId).marca }} / {{ getMasinaById(masinaId).model }}</p>
+            <p>Anul fabricației: {{ getMasinaById(masinaId).an }}</p>
+            <p>Capacitatea cilindrică: {{ getMasinaById(masinaId).cc }}</p>
+            <p>Taxa de impozit: {{ getMasinaById(masinaId).taxa }}</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <button class="btn-modificare" (click)="addEdit(persoana)">Modificare</button>
+        <button class="btn-stergere" (click)="delete(persoana)">Stergere</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- buton de adaugare -->
+<button class='btn btn-primary btn-sm' type='button' (click)='addEdit()'>
+  <fa-icon [icon]='faPlus'></fa-icon> Adaugă
+</button>

@@ -1,0 +1,47 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>{{id_car ? 'Modificare' : 'Adăugare'}} masina</h4>
+  </div>
+  
+  <div class='modal-body'>
+    <div class='row'>
+      <label class='col-2 control-label'>Marca*</label>
+      <div class='col-9'>
+        <input [(ngModel)]='modal.marca' class='form-control' placeholder='Marca...' maxlength='255' required />
+      </div>
+    </div>
+  
+    <div class='row'>
+      <label class='col-2 control-label'>Model*</label>
+      <div class='col-9'>
+        <input [(ngModel)]='modal.model' class='form-control' placeholder='Model...' maxlength='255' required/>
+      </div>
+    </div>
+  
+    <div class='row'>
+      <label class='col-2 control-label'>An*</label>
+      <div class='col-9'>
+        <input [(ngModel)]='modal.an' class='form-control' placeholder='An...' maxlength='4' required />
+      </div>
+    </div>
+  
+    <div class='row'>
+      <label class='col-2 control-label'>Capacitate Cilindrica*</label>
+      <div class='col-9'>
+        <input [(ngModel)]='modal.cc' class='form-control' placeholder='Capacitate Cilindrica...' maxlength='4'required />
+      </div>
+    </div>
+
+    <!-- <div class='row'>
+        <label class='col-2 control-label'>Taxa Impozit*</label>
+        <div class='col-9'>
+          <input [(ngModel)]='modal.taxa' class='form-control' placeholder='Taxa Impozit...' maxlength='4' readonly />
+        </div>
+      </div> -->
+  </div> 
+  <p>*Taxa se va completa automat</p>
+  
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-outline-dark' (click)='activeModal.dismiss()'>Renunță</button>
+    <button type='button' class='btn btn-success' (click)='save()'>Salvează</button>
+  </div>
+  
